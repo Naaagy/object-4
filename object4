@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hősök</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .hero-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div id="heroes-container"></div>
+
+<script>
+    let heroes = [
+        {firstName: "Ahsoka", lastName: "Tano", job: "padawan"},
+        {firstName: "Boba", lastName: "Fett", job: "fejvadász"},
+        {firstName: "Han", lastName: "Solo", job: "csempész"},
+        {firstName: "Leia", lastName: "Organa", job: "szenátor"}
+    ];
+
+    function renderHeroes() {
+        let container = document.getElementById('heroes-container');
+        container.innerHTML = ''; // Töröljük az előző tartalmat
+
+        heroes.forEach(hero => {
+            let card = document.createElement('div');
+            card.className = 'hero-card';
+            card.innerHTML = `
+                <h2>${hero.firstName} ${hero.lastName}</h2>
+                <p>${hero.job}</p>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    heroes.push(
+        {firstName: "Luke", lastName: "Skywalker", job: "jedi"},
+    );
+
+    renderHeroes();
+</script>
+
+</body>
+</html>
